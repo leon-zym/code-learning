@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Bear</title>
+
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        .bear {
+            position: absolute;
+            bottom: 20px;
+            z-index: 2;
+            width: 200px;
+            height: 100px;
+            background: url(images/bear.png) no-repeat;
+            animation: bear 1s steps(8) infinite, move 2s linear forwards;
+        }
+
+        .mountains_front {
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+            width: 100%;
+            height: 336px;
+            background: url(images/bg1.png);
+            animation: mountains_front 24s linear infinite;
+        }
+
+        .mountains_back {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 569px;
+            background: url(images/bg2.png);
+            animation: mountains_back 40s linear infinite;
+
+        }
+
+        @keyframes bear {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 50%;
+                /* margin-left: -100px; */
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes mountains_front {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -3840px 0;
+            }
+        }
+
+        @keyframes mountains_back {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -3840px 0;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="bear"></div>
+    <div class="mountains_front"></div>
+    <div class="mountains_back"></div>
+</body>
+</html>

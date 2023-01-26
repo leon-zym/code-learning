@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 100px;
+        background-color: #ccc;
+        text-align: center;
+        line-height: 100px;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 24px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div>上午好！</div>
+    <button>Click Me</button>
+    <input type="text" value="测试一下" />
+    <script>
+      var div = document.querySelector("div");
+      var date = new Date();
+      var hour = date.getHours();
+      if (hour < 12) {
+        div.innerHTML = "Good Morning !";
+        // div.background-color = '#666';
+        // div.color = "red";
+      } else if (hour < 18) {
+        div.innerHTML = "Good Afternoon !";
+        // div.background-color = '#666';
+        // div.color = "skyblue";
+      } else {
+        div.innerHTML = "Good Evening !";
+        // div.background-color = '#666';
+        // div.color = "pink";
+      }
+
+      var input = document.querySelector("input");
+      var btn = document.querySelector("button");
+      btn.onclick = function () {
+        input.value = "测试两下";
+      };
+    </script>
+  </body>
+</html>

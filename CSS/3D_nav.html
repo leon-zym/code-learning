@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            perspective: 500px;
+        }
+        ul {
+            width: 450px;
+            height: 30px;
+            margin: 100px auto;
+        }
+        li {
+            float: left;
+            margin: 0 10px;
+            text-align: center;
+            line-height: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            list-style: none;
+            color: #fff;
+            cursor: pointer;
+        }
+        .front {
+            width: 70px;
+            height: 30px;
+            background-color: #ccc;
+            transform: translateZ(15px);
+        }
+        .bottom {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 70px;
+            height: 30px;
+            background-color: #c8192c;
+            /* transform: translateY(-30px); */
+            transform: rotateX(-90deg);
+        }
+        .box {
+            position: relative;
+            width: 70px;
+            height: 30px;
+            transform-style: preserve-3d;
+            transition: all .4s;
+        }
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li><div class="box">
+        <div class="front">H e l l o</div>
+        <div class="bottom">W o r l d</div>
+    </div></li>
+        <li><div class="box">
+        <div class="front">H e l l o</div>
+        <div class="bottom">W o r l d</div>
+    </div></li>
+        <li><div class="box">
+        <div class="front">H e l l o</div>
+        <div class="bottom">W o r l d</div>
+    </div></li>
+        <li><div class="box">
+        <div class="front">H e l l o</div>
+        <div class="bottom">W o r l d</div>
+    </div></li>
+        <li><div class="box">
+        <div class="front">H e l l o</div>
+        <div class="bottom">W o r l d</div>
+    </div></li>
+    </ul>
+    
+</body>
+</html>
