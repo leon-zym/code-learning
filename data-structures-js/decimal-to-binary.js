@@ -1,4 +1,4 @@
-const { Stack } = require('./modules/stack')
+const Stack = require('./modules/stack')
 
 const decToBin = (decimalNumber) => {
   var stackData = new Stack()

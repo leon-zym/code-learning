@@ -25,6 +25,4 @@ const Stack = function() {
   }
 }
 
-module.exports = {
-  Stack
-}
+module.exports = Stack
