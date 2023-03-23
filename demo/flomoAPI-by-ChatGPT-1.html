@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>输入框和按钮示例</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      background-color: #F5F5F5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      box-sizing: border-box;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: #333333;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333333;
+      font-weight: bold;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: #333333;
+      background-color: #F5F5F5;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #3E8E41;
+    }
+
+    .result {
+      background-color: #FFFFFF;
+      color: #333333;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      padding: 16px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      margin-top: 16px;
+      font-size: 18px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <h1>输入框和按钮示例</h1>
+    <label for="input-text">请输入文字：</label>
+    <input type="text" id="input-text" name="input-text" placeholder="在这里输入文字...">
+    <button id="submit-btn">提交</button>
+    <div class="result" id="result"></div>
+  </form>
+
+  <script>
+    const inputText = document.getElementById('input-text');
+    const submitBtn = document.getElementById('submit-btn');
+    const result = document.getElementById('result');
+    const API_URL = 'https://flomoapp.com/iwh/MzY0NDc1/9d367787dcc6877e2f6b0bf7a7072bc4/'
+
+    submitBtn.addEventListener('click', () => {
+        const text = inputText.value;
+        fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            content: text
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data.message);
+          })
+          .catch(error => {
+            console.error(error);
+            result.innerText = '出错了，请重试。';
+          });
+
+        result.innerText = text;
+      });
+
+  </script>
+
+</body>
+
+</html>

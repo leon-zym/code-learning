@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="input">
+
+  <script>
+    let rawValue = (input.value).toString()
+
+    const convert = function (rawValue) {
+      let rawArr = rawValue.split("")
+      rawArr.reverse()
+      let newArr = []
+      rawArr.forEach((item, index) => {
+        newArr.push(item)
+        if ((index + 1) % 3 === 0) {
+          newArr.push(',')
+        }
+      })
+      newArr.reverse()
+      return newArr.join('')
+    }
+
+    let newValue = convert(rawValue)
+    input.value = newValue
+  </script>
+</body>
+</html>
