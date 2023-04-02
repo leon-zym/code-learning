@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let wholeURL = window.location.href
+    const URLObj = new URL(wholeURL)
+    console.log(URLObj);
+
+    let total = 60
+    let hashLeft = ''
+    let hashRight = ''
+
+    let flag = 'FORWARD'
+    let position = total
+
+    let timer = setInterval(() => {
+      if (flag === 'FORWARD') {
+        position--
+        if (!position) {
+          flag = 'BACKWARD'
+        }
+      } else {
+        position++
+        if (position === total) {
+          flag = 'FORWARD'
+        }
+      }
+
+      console.log(position, flag);
+
+      for (let i = 0; i < total - position; i++) {
+        hashLeft += '_'
+      }
+      for (let j = 0; j < position; j++) {
+        hashRight += '_'
+      }
+      if (flag === 'FORWARD') {
+        hashMain = '--=>'
+      } else {
+        hashMain = '<=--'
+      }
+
+      window.location.hash = hashLeft + hashMain + hashRight
+      hashLeft = hashRight = ''
+    }, 60);
+  </script>
+</body>
+</html>
